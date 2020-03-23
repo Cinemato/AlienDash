@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7773247205228739560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7773247205228739562}
+  - component: {fileID: 7773247205228739563}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7773247205228739562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7773247205228739560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7773247205228739563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7773247205228739560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb39c63df94efb84298355902a661912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 8348521903936977667, guid: 0e2a1e659099c34448d9fb035b62a6db, type: 3}
+  - {fileID: 8715915940887524980, guid: 3eedc090f2afe404eb8e0e1e758ca58a, type: 3}
+  - {fileID: 4174171660001976579, guid: dc3b65868f79afd44af68156338e6e70, type: 3}
+  - {fileID: 1441173399749183277, guid: 71268a57eaed2844dbd915236d42bbee, type: 3}
+  - {fileID: 3660250726535544166, guid: dcabca54cffb5c544b06b9bc67d958e9, type: 3}
+  - {fileID: 564920833608881116, guid: bc9b5782b9dcf4d4787a6e4f9dc66951, type: 3}
+  - {fileID: 4746906710464371570, guid: 05ed0cc0b02774c42b9f348b5b5c7c8f, type: 3}
+  - {fileID: 106215572273423781, guid: 4792fed1e1fa69d4dacf25639e31d045, type: 3}
+  - {fileID: 6239180314739813385, guid: b52ed67fbe80a144285f10e170fefe10, type: 3}
+  - {fileID: 3196292294633092124, guid: 4544a3665f17a6049b0332159e57bb26, type: 3}
+  - {fileID: 5849056898185362408, guid: 0eac11f28d4172646bc3ecbed54fc5a3, type: 3}
+  spawnDelay: 0.2
+  count: 0
+  boosterCount: 0
+  boosterLimit: 1
+  rainbowCount: 0
+  rainbowLimit: 2
+  tntCount: 0
+  tntLimit: 1
+  itemsPerScreen: 10
+  rainbowDustSpawnChance: 0.5
+  rainbowDustWithCoinsSpawnChance: 0.2
+  coinSpawnChance: 0.6
+  multipleCoinsSpawnChance: 0.4
+  boosterSpawnChance: 0.2
+  tntSpawnChance: 0.3
+  boosterWithCoinsSpawnChance: 0.1
+  yOffset: 6
