@@ -1774,7 +1774,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1409374630, guid: 5e6a6657621caba4184ccb210c7b7cb3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.92
+      value: -8.33
       objectReference: {fileID: 0}
     - target: {fileID: 1409374632, guid: 5e6a6657621caba4184ccb210c7b7cb3, type: 3}
       propertyPath: loseMenuUI
