@@ -27,14 +27,21 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("isInLeaderboard", 0);
         PlayerPrefs.SetInt("hasLost", 0);
+
+        if (PlayerPrefs.GetInt("hasName", 0) == 1)
+        {
+            Leaderboard.addNewHighscore(PlayerPrefs.GetString("playerName"), PlayerPrefs.GetInt("HighScore"));
+        }
+
         AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
+
         SceneManager.LoadScene(0);
     }
 
     public void leaderboard()
     {
-        AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
         SceneManager.LoadScene(2);
+        AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
     }
 
 

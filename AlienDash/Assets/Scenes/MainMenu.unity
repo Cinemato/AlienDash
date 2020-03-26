@@ -278,8 +278,8 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_textAlignment: 257
+  m_fontStyle: 0
+  m_textAlignment: 513
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -940,7 +940,7 @@ MonoBehaviour:
   buyUI: {fileID: 987140263}
   playUI: {fileID: 1226696525}
   priceText: {fileID: 1530617007}
-  skinPrices: 00000000f4010000f4010000f4010000f4010000f4010000f4010000f4010000e2040000e2040000e2040000e2040000d0070000c4090000c4090000c4090000c4090000c4090000c4090000881300008813000010270000
+  skinPrices: 00000000f4010000f4010000f4010000f4010000f4010000f4010000f4010000e2040000e2040000e2040000e2040000d0070000b80b0000b80b0000b80b0000b80b0000b80b0000b80b0000881300008813000010270000
   selectSound: {fileID: 8300000, guid: 00d024010a34bc04585df8ba4d6ad67c, type: 3}
   failSound: {fileID: 8300000, guid: e75b779c2f183db47a99390b5e7cde2f, type: 3}
   buySound: {fileID: 8300000, guid: 0ac3761ab3a39fb4b9cf9eea7ad67ed4, type: 3}
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1856,7 +1856,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0

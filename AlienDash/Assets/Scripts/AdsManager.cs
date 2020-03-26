@@ -24,7 +24,7 @@ public class AdsManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("NoAds", 0) == 0)
         {
-            if (pressCount >= 2)
+            if (pressCount >= 3)
             {
                 if (Monetization.IsReady(videoad))
                 {
