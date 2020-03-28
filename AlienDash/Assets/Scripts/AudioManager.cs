@@ -7,14 +7,9 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] Sprite soundImage;
     [SerializeField] Sprite mutedSoundImage;
-    [SerializeField] AudioClip selectSound;
 
     [SerializeField] GameObject muteButton;
 
-    private void Start()
-    {
-        PlayerPrefs.SetInt("muted", 0);
-    }
 
     private void Update()
     {
@@ -33,7 +28,7 @@ public class AudioManager : MonoBehaviour
 
     public void toggleSound()
     {
-        if(PlayerPrefs.GetInt("muted") == 0) 
+        if(PlayerPrefs.GetInt("muted", 0) == 0) 
         {
             PlayerPrefs.SetInt("muted", 1);
         }
