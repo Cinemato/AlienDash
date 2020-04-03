@@ -774,6 +774,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce208753dd9970146a7f3898db895e18, type: 3}
   - {fileID: 21300000, guid: 88c98170943dab34a866d4d830ff71e9, type: 3}
   - {fileID: 21300000, guid: 05f818ded682f2840a34e5eae4b760e2, type: 3}
+  - {fileID: 21300000, guid: 26207f0be11afe64293643fffb459b5e, type: 3}
+  - {fileID: 21300000, guid: f77fae30c335a5e43a4c0c07a8b799e9, type: 3}
+  - {fileID: 21300000, guid: 328b203f9d4633a45a5998f3e86df988, type: 3}
+  - {fileID: 21300000, guid: a3d81836239a427458eb5ae36e1fdd8b, type: 3}
+  - {fileID: 21300000, guid: 9471db220ae10f146aca0ab0b87579fc, type: 3}
+  - {fileID: 21300000, guid: 128be0fa0f0274b48b292edc14c5c9d2, type: 3}
+  - {fileID: 21300000, guid: 7e11932eafb0861448a0f83f8c822605, type: 3}
 --- !u!4 &2075532190
 Transform:
   m_ObjectHideFlags: 0
@@ -1578,6 +1585,26 @@ PrefabInstance:
         type: 3}
       propertyPath: forcePower
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622246627648, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: fallSpeed
+      value: -0.123
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622246627649, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622246627649, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2.174181
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622246627649, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4899458622246627651, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}

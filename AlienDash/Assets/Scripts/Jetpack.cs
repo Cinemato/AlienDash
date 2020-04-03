@@ -6,7 +6,7 @@ public class Jetpack : MonoBehaviour
 {
     Rigidbody2D rigidBody;
     [SerializeField] float jetpackPower = 5f;
-    [SerializeField] float fallSpeed = 4f;
+    [SerializeField] float fallSpeed = 0.05f;
     [SerializeField] GameObject firePrefab;
     [SerializeField] float _anglesPerSecond = 90;
     [SerializeField] float rotationSpeed = 3f;
@@ -124,7 +124,7 @@ public class Jetpack : MonoBehaviour
         }
         else if (!isFlying && !onGround)
         {
-            rigidBody.AddForce(new Vector2(0f, -fallSpeed), ForceMode2D.Force);
+            rigidBody.AddForce(Physics.gravity * (rigidBody.mass * rigidBody.mass * fallSpeed));
             Vector3 rotation = transform.localEulerAngles;
             rotation.z += Time.deltaTime * _anglesPerSecond * rotationSpeed;
             transform.localEulerAngles = rotation;
@@ -266,6 +266,11 @@ public class Jetpack : MonoBehaviour
     public bool getHasExploded()
     {
         return hasExploded;
+    }
+
+    public void setFallSpeed(float fallSpeed)
+    {
+        this.fallSpeed = fallSpeed;
     }
 }
 

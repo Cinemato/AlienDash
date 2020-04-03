@@ -5,7 +5,7 @@ using UnityEngine;
 public class TNT : MonoBehaviour
 {
     Jetpack player;
-    bool hasPlayedVFX = false;
+    bool hasExploded = false;
     CameraShake cameraShake;
     [SerializeField] GameObject explosionVFX;
 
@@ -18,13 +18,13 @@ public class TNT : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<Jetpack>())
-        {
-            StartCoroutine(cameraShake.Shake(0.4f, 0.4f));
-            player.setHasFuel(false);
-            if (!hasPlayedVFX)
+        {           
+            if (!hasExploded)
             {
+                StartCoroutine(cameraShake.Shake(0.4f, 0.4f));
+                player.setHasFuel(false);
                 GameObject VFX = Instantiate(explosionVFX, transform.position, Quaternion.identity);
-                hasPlayedVFX = true;
+                hasExploded = true;
                 Destroy(VFX, 3.5f);
             }
 

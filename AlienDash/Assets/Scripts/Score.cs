@@ -46,6 +46,29 @@ public class Score : MonoBehaviour
                 scoreAddAmount = originalScoreAddAmount;
                 doubleScoreUI.SetActive(false);
             }
+            
+            //Fall Difficulty
+
+            if(score > 75 && score < 150)
+            {
+                player.setFallSpeed(-0.05f);
+            }
+
+            if(score > 150 && score < 275)
+            {
+                player.setFallSpeed(-0.02f);
+            }
+
+            if(score > 275 && score < 350)
+            {
+                player.setFallSpeed(0f);
+            }
+
+            if(score > 350)
+            {
+                player.setFallSpeed(0.1f);
+            }
+
         }
     }
 

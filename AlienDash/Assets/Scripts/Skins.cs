@@ -13,6 +13,7 @@ public class Skins : MonoBehaviour
     [SerializeField] GameObject buyUI;
     [SerializeField] GameObject playUI;
     [SerializeField] TextMeshProUGUI priceText;
+    [SerializeField] GameObject skinPackText;
     [SerializeField] int[] skinPrices; //Prices for skins depending on their index. So price if skins[0] is skinPrices [0].
     [SerializeField] AudioClip selectSound;
     [SerializeField] AudioClip failSound;
@@ -39,6 +40,17 @@ public class Skins : MonoBehaviour
     {
         priceText.text = skinPrices[currentSkinIndex].ToString();
         renderer.sprite = skins[currentSkinIndex];
+
+        if (currentSkinIndex > 21)
+        {
+            if (skinPackText.GetComponent<TextMeshProUGUI>())
+            {
+                skinPackText.SetActive(true);
+            }
+        }
+
+        else
+            skinPackText.SetActive(false);
     }
 
     private void FixedUpdate()

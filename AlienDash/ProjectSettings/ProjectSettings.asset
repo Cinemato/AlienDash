@@ -121,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.3
+  bundleVersion: 1.5
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -163,12 +163,12 @@ PlayerSettings:
   targetPixelDensity: 30
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 2
-  androidMaxAspectRatio: 4.47
+  androidMaxAspectRatio: 4.4
   applicationIdentifier:
     Android: com.Cinemato.AlienDash
     Standalone: com.Company.ProductName
   buildNumber: {}
-  AndroidBundleVersionCode: 15
+  AndroidBundleVersionCode: 17
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
