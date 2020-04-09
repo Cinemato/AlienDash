@@ -21,7 +21,7 @@ public class TNT : MonoBehaviour
         {           
             if (!hasExploded)
             {
-                StartCoroutine(cameraShake.Shake(0.4f, 0.4f));
+                StartCoroutine(cameraShake.Shake(0.4f, 0.2f));
                 player.setHasFuel(false);
                 GameObject VFX = Instantiate(explosionVFX, transform.position, Quaternion.identity);
                 hasExploded = true;

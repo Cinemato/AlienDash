@@ -38,6 +38,10 @@ public class DisplayHighscores : MonoBehaviour
                     if (highscoreList.Length > i)
                     {
                         highscoreText[i].text += highscoreList[i].username + ": " + highscoreList[i].score;
+                        if (highscoreList[i].username == PlayerPrefs.GetString("playerName"))
+                        {
+                            highscoreText[i].color = Color.green;
+                        }
                     }
 
                 }

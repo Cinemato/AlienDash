@@ -568,9 +568,9 @@ Canvas:
   m_GameObject: {fileID: 387242212}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 9051813509170676334}
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1882,8 +1882,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 159.6, y: -70}
-  m_SizeDelta: {x: 277.7, y: 87.4}
+  m_AnchoredPosition: {x: 133, y: -49}
+  m_SizeDelta: {x: 239.2, y: 67.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333224753
 MonoBehaviour:
@@ -2694,6 +2694,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e382b21e7fb2614caa602f4fedec19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1860302895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860302893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e188ee899633d0b49870a5ae38b7359d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ratio: {x: 9, y: 16}
+  forceRatioOnAwake: 1
+  listenForWindowChanges: 1
+  createCameraForLetterBoxRendering: 1
+  findCamerasAutomatically: 1
+  letterBoxCameraColor: {r: 0, g: 0, b: 0, a: 1}
+  cameras: []
+  letterBoxCamera: {fileID: 0}
 --- !u!1 &1870717536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3440,3 +3460,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9051813509079693843, guid: 5e6a6657621caba4184ccb210c7b7cb3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e6a6657621caba4184ccb210c7b7cb3, type: 3}
+--- !u!20 &9051813509170676334 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9051813509079693842, guid: 5e6a6657621caba4184ccb210c7b7cb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 9051813509170676333}
+  m_PrefabAsset: {fileID: 0}

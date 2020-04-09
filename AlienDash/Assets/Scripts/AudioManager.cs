@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerPrefs.GetInt("muted") == 0)
+        if (PlayerPrefs.GetInt("hasSound") == 1) //0 = True, 1 = False
         {
             muteButton.GetComponent<Image>().sprite = mutedSoundImage;
             AudioListener.volume = 0;
@@ -28,16 +28,18 @@ public class AudioManager : MonoBehaviour
 
     public void toggleSound()
     {
-        if(PlayerPrefs.GetInt("muted", 0) == 0) 
+        if(PlayerPrefs.GetInt("hasSound", 0) == 0) 
         {
-            PlayerPrefs.SetInt("muted", 1);
+            PlayerPrefs.SetInt("hasSound", 1);
         }
 
         else
         {
-            PlayerPrefs.SetInt("muted", 0);
+            PlayerPrefs.SetInt("hasSound", 0);
         }
     }
+
+    
 
 
 

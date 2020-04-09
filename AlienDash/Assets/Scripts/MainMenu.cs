@@ -36,6 +36,9 @@ public class MainMenu : MonoBehaviour
         AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
 
         SceneManager.LoadScene(0);
+
+        PauseMenu.GameIsPaused = false;
+        Time.timeScale = 1f;
     }
 
     public void leaderboard()

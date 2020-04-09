@@ -52,27 +52,30 @@ public class Jetpack : MonoBehaviour
     {
         fuelSlider.setFuel(fuel);
 
-        if ((Input.touchCount > 0 || Input.GetButton("Jump")) && hasFuel)
+        if(!PauseMenu.GameIsPaused)
         {
-            fuel -= 1;
-            isFlying = true;
-            firePrefab.SetActive(true);
-            transform.rotation = newRotation;
-        }
-        else
-        {
-            Fall();
-        }
-
-        if (onGround)
-        {
-            if (!isFlying)
+            if ((Input.touchCount > 0 || Input.GetButton("Jump")) && hasFuel)
             {
-                firePrefab.SetActive(false);
-                transform.rotation = originalRotation;
-                rigidBody.AddForce(new Vector2(0f, 0f), ForceMode2D.Force);
+                fuel -= 1;
+                isFlying = true;
+                firePrefab.SetActive(true);
+                transform.rotation = newRotation;
             }
-        }
+            else
+            {
+                Fall();
+            }
+
+            if (onGround)
+            {
+                if (!isFlying)
+                {
+                    firePrefab.SetActive(false);
+                    transform.rotation = originalRotation;
+                    rigidBody.AddForce(new Vector2(0f, 0f), ForceMode2D.Force);
+                }
+            }
+        }      
 
         if (fuel <= 0)
         {

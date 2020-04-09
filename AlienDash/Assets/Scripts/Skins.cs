@@ -13,6 +13,7 @@ public class Skins : MonoBehaviour
     [SerializeField] GameObject buyUI;
     [SerializeField] GameObject playUI;
     [SerializeField] TextMeshProUGUI priceText;
+    [SerializeField] GameObject madeByText; 
     [SerializeField] GameObject skinPackText;
     [SerializeField] int[] skinPrices; //Prices for skins depending on their index. So price if skins[0] is skinPrices [0].
     [SerializeField] AudioClip selectSound;
@@ -46,11 +47,27 @@ public class Skins : MonoBehaviour
             if (skinPackText.GetComponent<TextMeshProUGUI>())
             {
                 skinPackText.SetActive(true);
+                if(currentSkinIndex > 28)
+                {
+                    skinPackText.GetComponent<TextMeshProUGUI>().text = "Skin Pack 2";
+                }
+
+                else
+                    skinPackText.GetComponent<TextMeshProUGUI>().text = "Skin Pack 1";
             }
         }
 
         else
             skinPackText.SetActive(false);
+
+
+        if (currentSkinIndex > 30 && currentSkinIndex < 35)  //Temporary Addition *** Better System Soon
+        {
+            madeByText.SetActive(true);
+        }
+
+        else
+            madeByText.SetActive(false);
     }
 
     private void FixedUpdate()

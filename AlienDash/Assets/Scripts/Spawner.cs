@@ -141,42 +141,42 @@ public class Spawner : MonoBehaviour
             {
                 if (thing.GetComponent<Booster>() && boosterCount < boosterLimit)
                 {              
-                    spawn(-1.9f, 1.9f, boosterSpawnChance, thing);   
+                    spawn(-2.4f, 2.4f, boosterSpawnChance, thing);   
                 }
 
                 if (thing.GetComponent<CoinBooster>() && boosterCount < boosterLimit)
                 {
-                    spawn(-1.7f, 0.5f, boosterWithCoinsSpawnChance, thing);
+                    spawn(-2.3f, 1.1f, boosterWithCoinsSpawnChance, thing);
                 }
 
                 if (thing.GetComponent<Coin>())
                 {
-                    spawn(-1.9f, 1.9f, coinSpawnChance, thing);
+                    spawn(-2.4f, 2.4f, coinSpawnChance, thing);
                 }
 
                 if (thing.GetComponent<Coins>())
                 {
-                    spawn(-1.5f, 1.82f, multipleCoinsSpawnChance, thing);
+                    spawn(-1.9f, 1.9f, multipleCoinsSpawnChance, thing);
                 }
 
                 if(thing.GetComponent<RainbowBlock>() && rainbowCount < rainbowLimit)
                 {
-                    spawn(-1.9f, 1.9f, rainbowDustSpawnChance, thing);
+                    spawn(-2.4f, 2.4f, rainbowDustSpawnChance, thing);
                 }
 
                 if(thing.GetComponent<CoinRainbow>() && rainbowCount < rainbowLimit)
                 {
-                    spawn(-1.2f, 1.2f, rainbowDustWithCoinsSpawnChance, thing);
+                    spawn(-1.8f, 1.8f, rainbowDustWithCoinsSpawnChance, thing);
                 }
 
                 if(thing.GetComponent<CoinRainbow2>() && rainbowCount < rainbowLimit)
                 {
-                    spawn(-3.2f, -0.5f, multipleCoinsSpawnChance, thing);
+                    spawn(-3.8f, -0.04f, multipleCoinsSpawnChance, thing);
                 }
 
                 if(thing.GetComponent<TNT>() && tntCount < tntLimit)
                 {
-                    spawn(-1.9f, 1.9f, tntSpawnChance, thing);
+                    spawn(-2.4f, 2.4f, tntSpawnChance, thing);
                 }
 
             }
