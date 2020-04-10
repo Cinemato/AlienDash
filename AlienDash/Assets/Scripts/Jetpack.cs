@@ -13,7 +13,10 @@ public class Jetpack : MonoBehaviour
     [SerializeField] int fuel = 100;
     [SerializeField] int maxFuel = 100;
     [SerializeField] float boostPower = 10f;
-    [SerializeField] float boostTime = 1f; 
+    [SerializeField] float boostTime = 1f;
+    [SerializeField] float ghostTransparency = 0.75f;
+    [SerializeField] float rainbowTransparency = 0.4f;
+    [SerializeField] float ghostTime = 4f;
 
     int coinsEarned = 0;
     Quaternion originalRotation;
@@ -26,11 +29,13 @@ public class Jetpack : MonoBehaviour
 
 
     bool hasBoost = false;
+    bool hasGhost = false;
     bool isFlying;
     bool onGround = true;
     bool hasFuel = true;
     bool lost = false;
     bool hasExploded = false;
+    bool hitBarrier = false;
 
     private void Start()
     {
@@ -100,6 +105,14 @@ public class Jetpack : MonoBehaviour
         setOrginalSpeed();
     }
 
+    IEnumerator GhostTime()
+    {
+        yield return new WaitForSeconds(ghostTime);
+        hasGhost = false;
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        firePrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+    }
+
     public bool isGoingDown()
     {
         if (transform.position.y > currentYPosition)
@@ -121,7 +134,10 @@ public class Jetpack : MonoBehaviour
     {
         if (isFlying)
         {
-            transform.position += transform.up * Time.deltaTime * jetpackPower;
+            if(!hitBarrier)
+            {
+                transform.position += transform.up * Time.deltaTime * jetpackPower;
+            }       
             rigidBody.velocity = new Vector2(0f, jetpackPower * Time.deltaTime);
             onGround = false;
         }
@@ -140,6 +156,29 @@ public class Jetpack : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             onGround = true;
+        }
+
+        if(collision.gameObject.tag == "Barrier")
+        {
+            if (!hasGhost)
+            {
+                hitBarrier = true;
+            }
+
+            else
+            {
+                collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+            }
+            
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Barrier")
+        {
+            hitBarrier = false;
+            collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
         }
     }
 
@@ -193,9 +232,25 @@ public class Jetpack : MonoBehaviour
 
         if(collision.gameObject.GetComponent<TNT>())
         {
-            collision.gameObject.GetComponent<Renderer>().enabled = false;
-            hasExploded = true;
-            Destroy(collision.gameObject, 3.5f);
+            if(!hasGhost)
+            {
+                collision.gameObject.GetComponent<Renderer>().enabled = false;
+                hasExploded = true;
+                Destroy(collision.gameObject, 3.5f);
+            }         
+        }
+
+        if(collision.gameObject.tag == "Ghost")
+        {
+            if(!hasGhost)
+            {
+                hasGhost = true;
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, ghostTransparency);
+                firePrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, rainbowTransparency);
+                StartCoroutine(GhostTime());
+            }
+            
+            Destroy(collision.gameObject);
         }
     }
 
@@ -274,6 +329,11 @@ public class Jetpack : MonoBehaviour
     public void setFallSpeed(float fallSpeed)
     {
         this.fallSpeed = fallSpeed;
+    }
+
+    public bool getHasGhost()
+    {
+        return hasGhost;
     }
 }
 

@@ -1905,7 +1905,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1444914182 stripped
 GameObject:
@@ -1966,7 +1966,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1493178420 stripped
 GameObject:
@@ -2722,11 +2722,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54315456, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 54315456, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7
+      value: -0.164
       objectReference: {fileID: 0}
     - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.r
@@ -2877,17 +2877,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2e64fc4ad77a7634094e57dabe146fb0,
+      objectReference: {fileID: 21300000, guid: e471fd643067c874fa4e1a113fb56a40,
         type: 3}
+    - target: {fileID: 4899458622183747690, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622183747690, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622183747690, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4899458622183747691, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.064
       objectReference: {fileID: 0}
     - target: {fileID: 4899458622183747691, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.63
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4899458622246627649, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
@@ -2962,6 +2977,11 @@ PrefabInstance:
     - target: {fileID: 4899458622246627652, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622246627652, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4899458622246627653, guid: faca164b927229a4ab3274d934f2cf4c,

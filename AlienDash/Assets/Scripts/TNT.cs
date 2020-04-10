@@ -18,18 +18,22 @@ public class TNT : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<Jetpack>())
-        {           
-            if (!hasExploded)
+        {
+            if(!player.getHasGhost())
             {
-                StartCoroutine(cameraShake.Shake(0.4f, 0.2f));
-                player.setHasFuel(false);
-                GameObject VFX = Instantiate(explosionVFX, transform.position, Quaternion.identity);
-                hasExploded = true;
-                Destroy(VFX, 3.5f);
-            }
+                if (!hasExploded)
+                {
+                    StartCoroutine(cameraShake.Shake(0.4f, 0.2f));
+                    player.setHasFuel(false);
+                    GameObject VFX = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+                    hasExploded = true;
+                    Destroy(VFX, 3.5f);
+                }
 
-            else
-                return;
+                else
+                    return;
+            }
+            
         }
     }
 }

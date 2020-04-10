@@ -5,14 +5,14 @@ using UnityEngine;
 public class LoseCollider : MonoBehaviour
 {
     [SerializeField] AudioClip loseSound;
-    Jetpack Player;  
+    Jetpack player;  
 
     bool hasStartedSound;
 
     private void Start()
     {
         hasStartedSound = false;
-        Player = FindObjectOfType<Jetpack>();
+        player = FindObjectOfType<Jetpack>();
     }
 
 
@@ -20,30 +20,38 @@ public class LoseCollider : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            PlayerPrefs.SetInt("hasLost", 1);
-            Player.setHasFuel(false);
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + Player.getCoins());
-          
-        
-            if (hasStartedSound == false)
+            if(gameObject.GetComponent<TNT>() && player.getHasGhost())
             {
-                if(gameObject.GetComponent<TNT>())
-                {
-                    AudioSource.PlayClipAtPoint(loseSound, Camera.main.transform.position);
-                }
+                return;
+            }
 
-                else if(!Player.getHasExploded())
-                {
-                    AudioSource.PlayClipAtPoint(loseSound, Camera.main.transform.position, 0.4f);
-                }
+            else
+            {
+                PlayerPrefs.SetInt("hasLost", 1);
+                player.setHasFuel(false);
+                PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + player.getCoins());
 
-                hasStartedSound = true;
-                
-                if (PlayerPrefs.GetInt("hasName", 0) == 1)
+
+                if (hasStartedSound == false)
                 {
-                    Leaderboard.addNewHighscore(PlayerPrefs.GetString("playerName"), PlayerPrefs.GetInt("HighScore"));
+                    if (gameObject.GetComponent<TNT>())
+                    {
+                        AudioSource.PlayClipAtPoint(loseSound, Camera.main.transform.position);
+                    }
+
+                    else if (!player.getHasExploded())
+                    {
+                        AudioSource.PlayClipAtPoint(loseSound, Camera.main.transform.position, 0.4f);
+                    }
+
+                    hasStartedSound = true;
+
+                    if (PlayerPrefs.GetInt("hasName", 0) == 1)
+                    {
+                        Leaderboard.addNewHighscore(PlayerPrefs.GetString("playerName"), PlayerPrefs.GetInt("HighScore"));
+                    }
                 }
-            }                
+            }                        
         }              
     }
 }

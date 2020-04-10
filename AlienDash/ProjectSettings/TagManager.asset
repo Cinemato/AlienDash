@@ -12,6 +12,8 @@ TagManager:
   - Coin2
   - Rainbow
   - Rainbow2
+  - Barrier
+  - Ghost
   layers:
   - Default
   - TransparentFX

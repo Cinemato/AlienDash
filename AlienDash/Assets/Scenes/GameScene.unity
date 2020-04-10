@@ -2113,7 +2113,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 54315456, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7
+      value: -0.164
       objectReference: {fileID: 0}
     - target: {fileID: 54315456, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2260,17 +2260,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2e64fc4ad77a7634094e57dabe146fb0,
+      objectReference: {fileID: 21300000, guid: e471fd643067c874fa4e1a113fb56a40,
         type: 3}
     - target: {fileID: 4899458622183747690, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 4899458622183747690, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4899458622183747691, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.064
       objectReference: {fileID: 0}
     - target: {fileID: 4899458622183747691, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
@@ -2286,6 +2291,16 @@ PrefabInstance:
         type: 3}
       propertyPath: fallSpeed
       value: -0.123
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622246627648, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: ghostTransparency
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622246627648, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: rainbowTransparency
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4899458622246627649, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
@@ -2361,6 +2376,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622246627652, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4899458622246627653, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
