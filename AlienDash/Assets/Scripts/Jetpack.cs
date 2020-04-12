@@ -17,6 +17,7 @@ public class Jetpack : MonoBehaviour
     [SerializeField] float ghostTransparency = 0.75f;
     [SerializeField] float rainbowTransparency = 0.4f;
     [SerializeField] float ghostTime = 4f;
+    [SerializeField] float slowTime = 2.5f;
 
     int coinsEarned = 0;
     Quaternion originalRotation;
@@ -36,6 +37,7 @@ public class Jetpack : MonoBehaviour
     bool lost = false;
     bool hasExploded = false;
     bool hitBarrier = false;
+    bool hasSlowed = false;
 
     private void Start()
     {
@@ -55,6 +57,11 @@ public class Jetpack : MonoBehaviour
 
     void Update()
     {
+        if(jetpackPower > 5)
+        {
+            hasSlowed = false;
+        }
+
         fuelSlider.setFuel(fuel);
 
         if(!PauseMenu.GameIsPaused)
@@ -102,7 +109,7 @@ public class Jetpack : MonoBehaviour
     {
         yield return new WaitForSeconds(boostTime);
         hasBoost = false;
-        setOrginalSpeed();
+        setOrginalSpeed();       
     }
 
     IEnumerator GhostTime()
@@ -111,6 +118,13 @@ public class Jetpack : MonoBehaviour
         hasGhost = false;
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         firePrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+    }
+
+    IEnumerator SlowTime()
+    {
+        yield return new WaitForSeconds(slowTime);
+        hasSlowed = false;
+        setOrginalSpeed();
     }
 
     public bool isGoingDown()
@@ -160,14 +174,14 @@ public class Jetpack : MonoBehaviour
 
         if(collision.gameObject.tag == "Barrier")
         {
-            if (!hasGhost)
+            if (!hasGhost && !hasBoost)
             {
                 hitBarrier = true;
             }
 
-            else
+            if(hasGhost || hasBoost)
             {
-                collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+                collision.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
             }
             
         }
@@ -178,7 +192,22 @@ public class Jetpack : MonoBehaviour
         if (collision.gameObject.tag == "Barrier")
         {
             hitBarrier = false;
-            collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Barrier")
+        {
+            hitBarrier = false;
+            collision.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+
+            if(hasBoost)
+            {
+                jetpackPower = 5;
+                hasBoost = false;
+                hasSlowed = true;
+            }
         }
     }
 
@@ -186,18 +215,22 @@ public class Jetpack : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Booster>())
         {
-            if (!hasBoost)
+            if(!hasSlowed)
             {
-                addSpeed(boostPower);
-                hasBoost = true;
-                StartCoroutine(BoostTime());
-            }
+                if (!hasBoost)
+                {
+                    addSpeed(boostPower);
+                    hasBoost = true;
+                    StartCoroutine(BoostTime());
+                }
 
-            if (collision.gameObject.tag == "Booster")
-            {
-                spawner.minusCount();
-                spawner.minusBoosterCount();
+                if (collision.gameObject.tag == "Booster")
+                {
+                    spawner.minusCount();
+                    spawner.minusBoosterCount();
+                }
             }
+            
 
             Destroy(collision.gameObject);
         }
@@ -249,8 +282,36 @@ public class Jetpack : MonoBehaviour
                 firePrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, rainbowTransparency);
                 StartCoroutine(GhostTime());
             }
-            
+
+            spawner.minusCount();
+            spawner.minusGhostCount();
             Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.GetComponent<Slow>())
+        {
+            if(!hasSlowed)
+            {
+                if(!hasGhost)
+                {
+                    hasSlowed = true;
+                    jetpackPower = 5f;
+                    StartCoroutine(SlowTime());
+
+                    if (hasBoost)
+                    {
+                        hasBoost = false;
+                    }
+                }          
+            }
+
+            if(!hasGhost)
+            {
+                Destroy(collision.gameObject);
+                spawner.minusCount();
+                spawner.minusSlowCount();
+            }
+            
         }
     }
 
@@ -334,6 +395,16 @@ public class Jetpack : MonoBehaviour
     public bool getHasGhost()
     {
         return hasGhost;
+    }
+
+    public bool getHasSlow()
+    {
+        return hasSlowed;
+    }
+
+    public bool getHasHitBarrier()
+    {
+        return hitBarrier;
     }
 }
 

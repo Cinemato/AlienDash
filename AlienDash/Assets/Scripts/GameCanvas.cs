@@ -6,7 +6,11 @@ using TMPro;
 public class GameCanvas : MonoBehaviour
 {
     [SerializeField] GameObject helpText;
+    [SerializeField] GameObject ghostPower;
+    [SerializeField] GameObject slowEffect;
+
     Jetpack player;
+
     void Start()
     {
         player = FindObjectOfType<Jetpack>();
@@ -30,6 +34,36 @@ public class GameCanvas : MonoBehaviour
             if (player.getIsFlying())
             {
                 helpFalse();
+            }
+
+            if(player.getHasGhost())
+            {              
+                if (player.getHasSlow())
+                {
+                    ghostPower.GetComponent<RectTransform>().anchoredPosition = new Vector2(176, ghostPower.GetComponent<RectTransform>().anchoredPosition.y);
+                }
+
+                else
+                {
+                    ghostPower.GetComponent<RectTransform>().anchoredPosition = new Vector2(68, ghostPower.GetComponent<RectTransform>().anchoredPosition.y);
+                }
+
+                ghostPower.SetActive(true);
+            }
+
+            else
+            {
+                ghostPower.SetActive(false);
+            }
+
+            if(player.getHasSlow())
+            {              
+                slowEffect.SetActive(true);
+            }
+
+            else
+            {
+                slowEffect.SetActive(false);
             }
         }    
     }

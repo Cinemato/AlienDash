@@ -30,9 +30,24 @@ public class Item : MonoBehaviour
             }
         }
 
-        if(gameObject.GetComponent<TNT>())
+        if (gameObject.GetComponent<Barrier>() || gameObject.GetComponent<CubeBarrier>() || gameObject.GetComponent<Barrier3>())
+        {
+            spawner.addBarrierCount();
+        }
+
+        if (gameObject.GetComponent<TNT>())
         {
             spawner.addTntCount();
+        }
+
+        if(gameObject.GetComponent<Ghost>())
+        {
+            spawner.addGhostCount();
+        }   
+        
+        if(gameObject.GetComponent<Slow>())
+        {
+            spawner.addSlowCount();
         }
     }
     private void Update()
@@ -51,9 +66,24 @@ public class Item : MonoBehaviour
                 spawner.minusRainbowCount();
             }
 
-            if(gameObject.GetComponent<TNT>())
+            if (gameObject.GetComponent<Barrier>() || gameObject.GetComponent<CubeBarrier>() || gameObject.GetComponent<Barrier3>())
+            {
+                spawner.minusBarrierCount();
+            }
+
+            if (gameObject.GetComponent<TNT>())
             {
                 spawner.minusTntCount();
+            }
+
+            if(gameObject.GetComponent<Ghost>())
+            {
+                spawner.minusGhostCount();
+            }
+
+            if(gameObject.GetComponent<Slow>())
+            {
+                spawner.minusSlowCount();
             }
 
             Destroy(gameObject);          

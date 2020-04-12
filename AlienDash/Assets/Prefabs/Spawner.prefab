@@ -51,24 +51,35 @@ MonoBehaviour:
   - {fileID: 3660250726535544166, guid: dcabca54cffb5c544b06b9bc67d958e9, type: 3}
   - {fileID: 564920833608881116, guid: bc9b5782b9dcf4d4787a6e4f9dc66951, type: 3}
   - {fileID: 4746906710464371570, guid: 05ed0cc0b02774c42b9f348b5b5c7c8f, type: 3}
-  - {fileID: 106215572273423781, guid: 4792fed1e1fa69d4dacf25639e31d045, type: 3}
+  - {fileID: 6372367281408954851, guid: e93f1f7016135dd4bb14d8967e43a9d4, type: 3}
   - {fileID: 6239180314739813385, guid: b52ed67fbe80a144285f10e170fefe10, type: 3}
-  - {fileID: 3196292294633092124, guid: 4544a3665f17a6049b0332159e57bb26, type: 3}
+  - {fileID: 349231275574664669, guid: ab785754efc5ab7429b3e35d2dc268ce, type: 3}
   - {fileID: 5849056898185362408, guid: 0eac11f28d4172646bc3ecbed54fc5a3, type: 3}
+  - {fileID: 3196292294633092124, guid: 4544a3665f17a6049b0332159e57bb26, type: 3}
+  - {fileID: 106215572273423781, guid: 4792fed1e1fa69d4dacf25639e31d045, type: 3}
   spawnDelay: 0.2
   count: 0
+  itemsPerScreen: 10
+  yOffset: 6
   boosterCount: 0
   boosterLimit: 1
+  boosterSpawnChance: 0.2
+  boosterWithCoinsSpawnChance: 0.1
   rainbowCount: 0
   rainbowLimit: 2
-  tntCount: 0
-  tntLimit: 1
-  itemsPerScreen: 10
   rainbowDustSpawnChance: 0.5
   rainbowDustWithCoinsSpawnChance: 0.2
   coinSpawnChance: 0.6
   multipleCoinsSpawnChance: 0.4
-  boosterSpawnChance: 0.2
+  tntCount: 0
+  tntLimit: 1
   tntSpawnChance: 0.3
-  boosterWithCoinsSpawnChance: 0.1
-  yOffset: 6
+  ghostCount: 0
+  ghostLimit: 1
+  ghostSpawnChance: 0.5
+  barrierCount: 0
+  barrierLimit: 0
+  barrierSpawnChance: 0.6
+  slowCount: 0
+  slowLimit: 0
+  slowSpawnChance: 0.4

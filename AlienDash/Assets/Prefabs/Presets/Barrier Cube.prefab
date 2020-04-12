@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3770155546038239254}
   - component: {fileID: 3770155546038239255}
+  - component: {fileID: 247156161398064340}
+  - component: {fileID: 1817616761}
   m_Layer: 0
   m_Name: Barrier Cube
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +50,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yOffsetForDeletingObject: 7
+--- !u!114 &247156161398064340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770155546038239253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74327678ee9ba9d4f918e3f29a15a758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1817616761
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770155546038239253}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.33802503, y: 0.3618129}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3539397, y: 1.3547188}
+  m_EdgeRadius: 0
 --- !u!1001 &3770155544071991334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,7 +155,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7591359425944152782, guid: 69f1afcff50c62446a1b6bb706531f2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7591359425944152781, guid: 69f1afcff50c62446a1b6bb706531f2e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69f1afcff50c62446a1b6bb706531f2e, type: 3}
 --- !u!4 &6704634247679285989 stripped
 Transform:
@@ -190,7 +236,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7591359425944152782, guid: 69f1afcff50c62446a1b6bb706531f2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7591359425944152781, guid: 69f1afcff50c62446a1b6bb706531f2e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69f1afcff50c62446a1b6bb706531f2e, type: 3}
 --- !u!4 &6704634247518913751 stripped
 Transform:
@@ -265,7 +317,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7591359425944152782, guid: 69f1afcff50c62446a1b6bb706531f2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7591359425944152781, guid: 69f1afcff50c62446a1b6bb706531f2e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69f1afcff50c62446a1b6bb706531f2e, type: 3}
 --- !u!4 &6704634246969953138 stripped
 Transform:
@@ -340,7 +398,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7591359425944152782, guid: 69f1afcff50c62446a1b6bb706531f2e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7591359425944152781, guid: 69f1afcff50c62446a1b6bb706531f2e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69f1afcff50c62446a1b6bb706531f2e, type: 3}
 --- !u!4 &6704634246824388746 stripped
 Transform:

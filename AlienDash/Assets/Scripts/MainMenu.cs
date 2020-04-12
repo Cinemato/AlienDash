@@ -47,5 +47,12 @@ public class MainMenu : MonoBehaviour
         AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
     }
 
+    public void infoBoard()
+    {
+        SceneManager.LoadScene(3);
+        AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
+        PlayerPrefs.SetInt("newPlayer", 1);
+    }
+
 
 }

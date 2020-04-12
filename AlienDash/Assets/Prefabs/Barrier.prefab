@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7591359425944152781}
   m_Layer: 0
   m_Name: Barrier
-  m_TagString: Barrier
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8a4904a10d49917498ad289fe7f63924, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,6 +95,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015410006, y: 0.006604314}
+  m_Offset: {x: -0.015410006, y: 0.01147604}
   serializedVersion: 2
-  m_Radius: 0.316419
+  m_Radius: 0.29693222

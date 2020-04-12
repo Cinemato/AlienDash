@@ -4,25 +4,48 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [Header("Overall Spawner")]
     [SerializeField] GameObject[] prefabs;
     [SerializeField] float spawnDelay = 3f;
     [SerializeField] int count = 0;
+    [SerializeField] int itemsPerScreen = 10;
+    [SerializeField] float yOffset;
+
+    [Header("Booster")]
     [SerializeField] int boosterCount = 0;
     [SerializeField] int boosterLimit = 2;
+    [SerializeField] float boosterSpawnChance = 0.2f;
+    [SerializeField] float boosterWithCoinsSpawnChance = 0.1f;
+
+    [Header("Rainbow Dust")]
     [SerializeField] int rainbowCount = 0;
     [SerializeField] int rainbowLimit = 2;
-    [SerializeField] int tntCount = 0;
-    [SerializeField] int tntLimit = 1;
-    [SerializeField] int itemsPerScreen = 20;
     [SerializeField] float rainbowDustSpawnChance = 0.4f;
     [SerializeField] float rainbowDustWithCoinsSpawnChance = 0.1f;
+
+    [Header("Coin")]
     [SerializeField] float coinSpawnChance = 0.6f;
     [SerializeField] float multipleCoinsSpawnChance = 0.4f;
-    [SerializeField] float boosterSpawnChance = 0.2f;
+
+    [Header("TNT")]
+    [SerializeField] int tntCount = 0;
+    [SerializeField] int tntLimit = 1;
     [SerializeField] float tntSpawnChance = 0.4f;
-    [SerializeField] float boosterWithCoinsSpawnChance = 0.1f;
-    [SerializeField] float yOffset;
+
+    [Header("Ghost")]
+    [SerializeField] int ghostCount = 0;
+    [SerializeField] int ghostLimit = 1;
+    [SerializeField] float ghostSpawnChance = 0.15f;
     
+    [Header("Barrier")]
+    [SerializeField] int barrierCount = 0;
+    [SerializeField] int barrierLimit = 1;
+    [SerializeField] float barrierSpawnChance = 0.5f;
+
+    [Header("Slowness")]
+    [SerializeField] int slowCount = 0;
+    [SerializeField] int slowLimit = 0;
+    [SerializeField] float slowSpawnChance = 0.4f;
 
 
     Vector3 screenPos;
@@ -58,6 +81,16 @@ public class Spawner : MonoBehaviour
         tntCount--;
     }
 
+    public void minusGhostCount()
+    {
+        ghostCount--;
+    }
+
+    public void minusBarrierCount()
+    {
+        barrierCount--;
+    }
+
     public void addRainbowCount()
     {
         rainbowCount++;
@@ -73,6 +106,16 @@ public class Spawner : MonoBehaviour
         tntCount++;
     }
 
+    public void addGhostCount()
+    {
+        ghostCount++;
+    }
+
+    public void addBarrierCount()
+    {
+        barrierCount++;
+    }
+
     public int getRainbowCount()
     {
         return rainbowCount;
@@ -82,6 +125,17 @@ public class Spawner : MonoBehaviour
     {
         return rainbowLimit;
     }
+
+    public void addSlowCount()
+    {
+        slowCount++;
+    }
+
+    public void minusSlowCount()
+    {
+        slowCount--;
+    }
+
 
     private void Update()
     {
@@ -100,6 +154,21 @@ public class Spawner : MonoBehaviour
             if(score.getScore() > 300)
             {
                 tntLimit = 2;
+            }
+
+            if(score.getScore() > 75 && score.getScore() < 150)
+            {
+                slowLimit = 1;
+            }
+
+            if(score.getScore() > 150 && score.getScore() < 300)
+            {
+                slowSpawnChance = 0.6f;
+            }
+
+            if (score.getScore() > 300)
+            {
+                slowLimit = 2;
             }
         }      
     }
@@ -124,6 +193,11 @@ public class Spawner : MonoBehaviour
                 }
 
                 GameObject stuff = Instantiate(prefab, finalPos, Quaternion.identity);
+                if(stuff == null)
+                {
+                    Debug.Log("NULL!");
+                }
+                Debug.Log(stuff);
                 previousPosition = new Vector3(Mathf.Clamp(stuff.transform.position.x, -2.22f, 2.22f), stuff.transform.position.y - yOffset, stuff.transform.position.z);
 
                 count++;
@@ -139,45 +213,56 @@ public class Spawner : MonoBehaviour
         {
             if (count < itemsPerScreen)
             {
-                if (thing.GetComponent<Booster>() && boosterCount < boosterLimit)
-                {              
-                    spawn(-2.4f, 2.4f, boosterSpawnChance, thing);   
+                if (thing.GetComponent<Booster>() != null && boosterCount < boosterLimit)
+                {
+                    spawn(-2.4f, 2.4f, boosterSpawnChance, thing);
                 }
 
-                if (thing.GetComponent<CoinBooster>() && boosterCount < boosterLimit)
+                if (thing.GetComponent<CoinBooster>() != null && boosterCount < boosterLimit)
                 {
                     spawn(-2.3f, 1.1f, boosterWithCoinsSpawnChance, thing);
                 }
 
-                if (thing.GetComponent<Coin>())
+                if (thing.GetComponent<Coin>() != null)
                 {
                     spawn(-2.4f, 2.4f, coinSpawnChance, thing);
                 }
 
-                if (thing.GetComponent<Coins>())
+                if (thing.GetComponent<Coins>() != null)
                 {
                     spawn(-1.9f, 1.9f, multipleCoinsSpawnChance, thing);
                 }
 
-                if(thing.GetComponent<RainbowBlock>() && rainbowCount < rainbowLimit)
+                if (thing.GetComponent<RainbowBlock>() != null && rainbowCount < rainbowLimit)
                 {
                     spawn(-2.4f, 2.4f, rainbowDustSpawnChance, thing);
                 }
 
-                if(thing.GetComponent<CoinRainbow>() && rainbowCount < rainbowLimit)
+                if (thing.GetComponent<CoinRainbow>() != null && rainbowCount < rainbowLimit)
                 {
                     spawn(-1.8f, 1.8f, rainbowDustWithCoinsSpawnChance, thing);
                 }
 
-                if(thing.GetComponent<CoinRainbow2>() && rainbowCount < rainbowLimit)
+                if (thing.GetComponent<CoinRainbow2>() != null && rainbowCount < rainbowLimit)
                 {
                     spawn(-3.8f, -0.04f, multipleCoinsSpawnChance, thing);
                 }
 
-                if(thing.GetComponent<TNT>() && tntCount < tntLimit)
+                if (thing.GetComponent<TNT>() != null && tntCount < tntLimit)
                 {
                     spawn(-2.4f, 2.4f, tntSpawnChance, thing);
                 }
+
+                if (thing.GetComponent<Ghost>() != null && ghostCount < ghostLimit)
+                {
+                    spawn(-2.4f, 2.4f, ghostSpawnChance, thing);
+                }
+
+                if(thing.GetComponent<Slow>() != null && slowCount < slowLimit)
+                {
+                    spawn(-2.4f, 2.4f, slowSpawnChance, thing);
+                }
+
 
             }
 
@@ -193,7 +278,7 @@ public class Spawner : MonoBehaviour
 
 
 
-    // Vector3 v3Pos = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0.5f, 1), Random.Range(1.1f, 2), 10));
-    //Vector2 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0.5f, Screen.width), Random.Range(1.1f, Screen.height)));
+   // Vector3 v3Pos = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0.5f, 1), Random.Range(1.1f, 2), 10));
+   // Vector2 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0.5f, Screen.width), Random.Range(1.1f, Screen.height)));
    // Instantiate(prefabs[Random.Range(0, prefabs.Length)], screenPosition, Quaternion.identity);
 }
