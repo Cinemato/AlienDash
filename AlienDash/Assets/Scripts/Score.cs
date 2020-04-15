@@ -51,12 +51,12 @@ public class Score : MonoBehaviour
 
             if(score > 75 && score < 150)
             {
-                player.setFallSpeed(-0.05f);
+                player.setFallSpeed(-0.07f);
             }
 
             if(score > 150 && score < 275)
             {
-                player.setFallSpeed(-0.02f);
+                player.setFallSpeed(-0.05f);
             }
 
             if(score > 275 && score < 350)
@@ -66,7 +66,7 @@ public class Score : MonoBehaviour
 
             if(score > 350)
             {
-                player.setFallSpeed(0.1f);
+                player.setFallSpeed(0.05f);
             }
 
         }

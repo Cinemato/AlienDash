@@ -109,7 +109,10 @@ public class Jetpack : MonoBehaviour
     {
         yield return new WaitForSeconds(boostTime);
         hasBoost = false;
-        setOrginalSpeed();       
+        if(!hasSlowed)
+        {
+            setOrginalSpeed();
+        } 
     }
 
     IEnumerator GhostTime()
