@@ -75,7 +75,7 @@ MonoBehaviour:
   tntLimit: 1
   tntSpawnChance: 0.3
   ghostCount: 0
-  ghostLimit: 1
+  ghostLimit: 0
   ghostSpawnChance: 0.5
   barrierCount: 0
   barrierLimit: 0

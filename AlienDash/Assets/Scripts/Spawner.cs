@@ -146,29 +146,41 @@ public class Spawner : MonoBehaviour
 
         if(score != null)
         {
-            if (score.getScore() > 150)
+
+            if(score.getScore() > 35)
+            {
+                ghostLimit = 1;
+            }
+
+            if (score.getScore() >= 150 && score.getScore() < 450)
             {
                 tntSpawnChance = 0.6f;
             }
 
-            if(score.getScore() > 300)
+            if(score.getScore() >= 300)
             {
                 tntLimit = 2;
             }
 
-            if(score.getScore() > 75 && score.getScore() < 150)
+            if(score.getScore() >= 75 && score.getScore() < 150)
             {
                 slowLimit = 1;
             }
 
-            if(score.getScore() > 150 && score.getScore() < 300)
+            if(score.getScore() >= 150 && score.getScore() < 300)
             {
                 slowSpawnChance = 0.6f;
             }
 
-            if (score.getScore() > 300)
+            if (score.getScore() >= 300 && score.getScore() < 450)
             {
                 slowLimit = 2;
+            }
+
+            if(score.getScore() >= 450)
+            {
+                slowLimit = 1;
+                tntSpawnChance = 0.8f;
             }
         }      
     }
