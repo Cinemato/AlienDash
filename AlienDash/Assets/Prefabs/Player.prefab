@@ -4936,11 +4936,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2.174181
+  m_Mass: 3
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2de6bbbe41a0e384abce7d5ac40578cc, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -4969,6 +4969,11 @@ MonoBehaviour:
   ghostTransparency: 0.75
   rainbowTransparency: 0.4
   ghostTime: 6.5
+  slowTime: 3.5
+  icon:
+  - {fileID: 2703841158376091042, guid: 8b517070ef9d987408cfab4f853b5d72, type: 3}
+  - {fileID: 400856095796675783, guid: 2992e0bdeea5cee48b5ae5becefaf686, type: 3}
+  - {fileID: 5780674770303892477, guid: 575c182ea404d56428a59a3c32e125f1, type: 3}
 --- !u!114 &1307137566904209941
 MonoBehaviour:
   m_ObjectHideFlags: 0

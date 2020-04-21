@@ -24,6 +24,8 @@ public class Jetpack : MonoBehaviour
     Quaternion newRotation;
     FuelSlider fuelSlider;
     Spawner spawner;
+    GameCanvas gameCanvas;
+    [SerializeField] PowerIcon[] icon;
 
     float originalSpeed;
     float currentYPosition;
@@ -40,7 +42,8 @@ public class Jetpack : MonoBehaviour
     bool hasSlowed = false;
 
     private void Start()
-    {
+    {        
+        gameCanvas = FindObjectOfType<GameCanvas>();
         newRotation = transform.rotation;
         coinsEarned = 0;
         hasFuel = true;
@@ -56,8 +59,8 @@ public class Jetpack : MonoBehaviour
     }
 
     void Update()
-    {
-        if(jetpackPower > 5)
+    { 
+        if (jetpackPower > 5)
         {
             hasSlowed = false;
         }
@@ -87,6 +90,8 @@ public class Jetpack : MonoBehaviour
                     rigidBody.AddForce(new Vector2(0f, 0f), ForceMode2D.Force);
                 }
             }
+
+            Debug.Log(gameCanvas.getNumberOfEffects());
         }      
 
         if (fuel <= 0)
@@ -112,7 +117,24 @@ public class Jetpack : MonoBehaviour
         if(!hasSlowed)
         {
             setOrginalSpeed();
-        } 
+        }
+
+        if(!hasSlowed)
+        {
+            gameCanvas.minusEffect();
+        }
+
+        if (icon != null)
+        {
+            for(int i = 0; i < icon.Length; i++)
+            {
+                if(i != 0)
+                {
+                    icon[i].positionIcons();
+                }             
+            }
+
+        }
     }
 
     IEnumerator GhostTime()
@@ -121,13 +143,38 @@ public class Jetpack : MonoBehaviour
         hasGhost = false;
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         firePrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        gameCanvas.minusEffect();
+
+        if (icon != null)
+        {
+            for (int i = 0; i < icon.Length; i++)
+            {
+                if(i != 1)
+                {
+                    icon[i].positionIcons();
+                }              
+            }
+        }
     }
 
     IEnumerator SlowTime()
     {
         yield return new WaitForSeconds(slowTime);
         hasSlowed = false;
+        gameCanvas.minusEffect();
         setOrginalSpeed();
+
+        if (icon != null)
+        {
+            for (int i = 0; i < icon.Length; i++)
+            {
+                if(i != 2)
+                {
+                    icon[i].positionIcons();
+                }
+                
+            }
+        }
     }
 
     public bool isGoingDown()
@@ -225,6 +272,13 @@ public class Jetpack : MonoBehaviour
                     addSpeed(boostPower);
                     hasBoost = true;
                     StartCoroutine(BoostTime());
+
+                    gameCanvas.addEffect();
+
+                    if (icon != null)
+                    {
+                        icon[0].positionIcons();
+                    }
                 }
 
                 if (collision.gameObject.tag == "Booster")
@@ -284,6 +338,13 @@ public class Jetpack : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, ghostTransparency);
                 firePrefab.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, rainbowTransparency);
                 StartCoroutine(GhostTime());
+                gameCanvas.addEffect();
+
+                if(icon != null)
+                {
+                    icon[1].positionIcons();
+                }
+                
             }
 
             spawner.minusCount();
@@ -304,6 +365,14 @@ public class Jetpack : MonoBehaviour
                     if (hasBoost)
                     {
                         hasBoost = false;
+                        gameCanvas.minusEffect();
+                    }
+
+                    gameCanvas.addEffect();
+
+                    if (icon != null)
+                    {
+                        icon[2].positionIcons();
                     }
                 }          
             }
