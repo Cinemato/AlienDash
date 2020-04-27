@@ -126,14 +126,16 @@ public class Jetpack : MonoBehaviour
 
         if (icon != null)
         {
-            for(int i = 0; i < icon.Length; i++)
+            if(!hasSlowed)
             {
-                if(i != 0)
+                for (int i = 0; i < icon.Length; i++)
                 {
-                    icon[i].positionIcons();
-                }             
+                    if (i != 0)
+                    {
+                        icon[i].positionIcons();
+                    }
+                }
             }
-
         }
     }
 
@@ -197,11 +199,8 @@ public class Jetpack : MonoBehaviour
     private void FixedUpdate()
     {
         if (isFlying)
-        {
-            if(!hitBarrier)
-            {
-                transform.position += transform.up * Time.deltaTime * jetpackPower;
-            }       
+        {         
+            transform.position += transform.up * Time.deltaTime * jetpackPower;                 
             rigidBody.velocity = new Vector2(0f, jetpackPower * Time.deltaTime);
             onGround = false;
         }

@@ -670,6 +670,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 44248882, guid: 1aa58a9e3c4678041b0840c8ebf605ea, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 177.77779
+      objectReference: {fileID: 0}
+    - target: {fileID: 44248882, guid: 1aa58a9e3c4678041b0840c8ebf605ea, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 177.77779
+      objectReference: {fileID: 0}
     - target: {fileID: 1628124513, guid: 1aa58a9e3c4678041b0840c8ebf605ea, type: 3}
       propertyPath: boltPower
       value: 
