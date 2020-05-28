@@ -19,7 +19,7 @@ public class Slow : MonoBehaviour
         {
             if(!player.getHasGhost())
             {
-                AudioSource.PlayClipAtPoint(pickUpSound, Camera.main.transform.position, 0.5f);
+                AudioSource.PlayClipAtPoint(pickUpSound, Camera.main.transform.position, 0.3f);
                 GameObject VFX = Instantiate(slowVFX, transform.position, Quaternion.identity);
                 Destroy(VFX, 1f);
             }          

@@ -43,6 +43,7 @@ public class MainMenu : MonoBehaviour
 
     public void leaderboard()
     {
+        PlayerPrefs.SetInt("openedLB", 0);
         SceneManager.LoadScene(2);
         AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
     }

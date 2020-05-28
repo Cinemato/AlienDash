@@ -57,11 +57,13 @@ public class Score : MonoBehaviour
             if(score > 150 && score < 275)
             {
                 player.setFallSpeed(-0.05f);
+                player.setRotatingSpeed(4.7f);
             }
 
             if(score > 275 && score < 350)
             {
                 player.setFallSpeed(0f);
+                player.setRotatingSpeed(5f);
             }
 
             if(score > 350)

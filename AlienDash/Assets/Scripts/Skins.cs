@@ -12,6 +12,10 @@ public class Skins : MonoBehaviour
     [SerializeField] Sprite[] skins;
     [SerializeField] GameObject buyUI;
     [SerializeField] GameObject playUI;
+    [SerializeField] GameObject rightSPButton;
+    [SerializeField] GameObject leftSPButton;
+    [SerializeField] TextMeshProUGUI rightSPText;
+    [SerializeField] TextMeshProUGUI leftSPText;
     [SerializeField] TextMeshProUGUI priceText;
     [SerializeField] GameObject madeByText; 
     [SerializeField] GameObject skinPackText;
@@ -68,6 +72,46 @@ public class Skins : MonoBehaviour
 
         else
             madeByText.SetActive(false);
+
+        if(currentSkinIndex > 0 && currentSkinIndex < 29)
+        {
+            rightSPButton.SetActive(true);
+        }
+
+        else
+        {
+            rightSPButton.SetActive(false);
+        }
+
+        if(currentSkinIndex > 7)
+        {
+            leftSPButton.SetActive(true);
+        }
+
+        else
+        {
+            leftSPButton.SetActive(false);
+        }
+
+        if(currentSkinIndex < 22)
+        {
+            rightSPText.text = "SP1";
+        }
+
+        else if(currentSkinIndex >= 22)
+        {
+            rightSPText.text = "SP2";
+        }
+
+        if(currentSkinIndex < 29)
+        {
+            leftSPText.text = "Start";
+        }
+
+        else if(currentSkinIndex >= 29)
+        {
+            leftSPText.text = "SP1";
+        }
     }
 
     private void FixedUpdate()
@@ -87,15 +131,7 @@ public class Skins : MonoBehaviour
             currentSkinIndex = 0;
         }
 
-        if(hasBought[currentSkinIndex] == 1)
-        {
-            bought();
-        }
-
-        else if(hasBought[currentSkinIndex] <= 0)
-        {
-            notBought();
-        }
+        checkIfBought();
 
         AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
     }
@@ -108,15 +144,7 @@ public class Skins : MonoBehaviour
             currentSkinIndex = skins.Length - 1;
         }
 
-        if (hasBought[currentSkinIndex] == 1)
-        {
-            bought();
-        }
-
-        else if (hasBought[currentSkinIndex] <= 0)
-        {
-            notBought();
-        }
+        checkIfBought();
 
         AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
     }
@@ -156,7 +184,51 @@ public class Skins : MonoBehaviour
         }
     }
 
+    public void teleportForward()
+    {
+        if(currentSkinIndex < 22)
+        {
+            currentSkinIndex = 22;
+            checkIfBought();
+        }
+
+        else if(currentSkinIndex >= 22 && currentSkinIndex < 29)
+        {
+            currentSkinIndex = 29;
+            checkIfBought();
+        }
+
+        AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
+    }
     
-    
+    public void teleportBackward()
+    {
+        if(currentSkinIndex < 29)
+        {
+            currentSkinIndex = 0;
+            checkIfBought();
+        }
+
+        else if(currentSkinIndex >= 29)
+        {
+            currentSkinIndex = 22;
+            checkIfBought();
+        }
+
+        AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
+    }
+
+    private void checkIfBought()
+    {
+        if (hasBought[currentSkinIndex] == 1)
+        {
+            bought();
+        }
+
+        else if (hasBought[currentSkinIndex] <= 0)
+        {
+            notBought();
+        }
+    }
 
 }

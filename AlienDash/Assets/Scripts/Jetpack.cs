@@ -477,6 +477,11 @@ public class Jetpack : MonoBehaviour
     {
         return hitBarrier;
     }
+
+    public void setRotatingSpeed(float newSpeed)
+    {
+        rotationSpeed = newSpeed;
+    }
 }
 
 
