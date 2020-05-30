@@ -3176,7 +3176,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -939402041
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 064bb786b93793042b0a105be33ab9c7, type: 3}
@@ -3950,6 +3950,21 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4899458622183747690, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622183747690, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1835691321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622183747690, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4899458622183747691, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3959,6 +3974,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622183747691, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899458622183747691, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4899458622246627649, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}

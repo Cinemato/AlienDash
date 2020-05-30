@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Jetpack : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Jetpack : MonoBehaviour
     [SerializeField] float rainbowTransparency = 0.4f;
     [SerializeField] float ghostTime = 4f;
     [SerializeField] float slowTime = 2.5f;
+    [SerializeField] PowerIcon[] icon;
 
     int coinsEarned = 0;
     Quaternion originalRotation;
@@ -25,7 +27,8 @@ public class Jetpack : MonoBehaviour
     FuelSlider fuelSlider;
     Spawner spawner;
     GameCanvas gameCanvas;
-    [SerializeField] PowerIcon[] icon;
+    CameraMovement cm;
+    
 
     float originalSpeed;
     float currentYPosition;
@@ -42,7 +45,8 @@ public class Jetpack : MonoBehaviour
     bool hasSlowed = false;
 
     private void Start()
-    {        
+    {
+        cm = FindObjectOfType<CameraMovement>();
         gameCanvas = FindObjectOfType<GameCanvas>();
         newRotation = transform.rotation;
         coinsEarned = 0;
@@ -56,6 +60,11 @@ public class Jetpack : MonoBehaviour
         isFlying = false;
         firePrefab.SetActive(false);
         rigidBody = GetComponent<Rigidbody2D>();
+
+        if(PlayerPrefs.GetInt("PlayAgain", 1) == 0)
+        {
+            transform.position = new Vector2(transform.position.x, -1.05f);
+        }
     }
 
     void Update()
@@ -69,12 +78,25 @@ public class Jetpack : MonoBehaviour
 
         if(!PauseMenu.GameIsPaused)
         {
-            if ((Input.touchCount > 0 || Input.GetButton("Jump")) && hasFuel)
+            if ((Input.touchCount > 0 || Input.GetButton("Jump")) && hasFuel && !EventSystem.current.IsPointerOverGameObject())
             {
-                fuel -= 1;
-                isFlying = true;
-                firePrefab.SetActive(true);
-                transform.rotation = newRotation;
+                if(PlayerPrefs.GetInt("PlayAgain", 1) == 0)
+                {
+                    fuel -= 1;
+                    isFlying = true;
+                    firePrefab.SetActive(true);
+                    transform.rotation = newRotation;
+
+                }
+
+                else if(cm.getTimer() <= 0)
+                {
+                    fuel -= 1;
+                    isFlying = true;
+                    firePrefab.SetActive(true);
+                    transform.rotation = newRotation;
+
+                }
             }
             else
             {
@@ -198,11 +220,22 @@ public class Jetpack : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (isFlying)
-        {         
-            transform.position += transform.up * Time.deltaTime * jetpackPower;                 
-            rigidBody.velocity = new Vector2(0f, jetpackPower * Time.deltaTime);
-            onGround = false;
+        {
+            if (PlayerPrefs.GetInt("PlayAgain", 1) == 0)
+            {
+                transform.position += transform.up * Time.deltaTime * jetpackPower;
+                rigidBody.velocity = new Vector2(0f, jetpackPower * Time.deltaTime);
+                onGround = false;
+            }
+
+            else if (cm.getTimer() <= 0)
+            {
+                transform.position += transform.up * Time.deltaTime * jetpackPower;
+                rigidBody.velocity = new Vector2(0f, jetpackPower * Time.deltaTime);
+                onGround = false;
+            }      
         }
         else if (!isFlying && !onGround)
         {

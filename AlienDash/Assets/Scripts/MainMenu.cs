@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
             ads.AdShower();
         }       
         PlayerPrefs.SetInt("hasLost", 0);
+        PlayerPrefs.SetInt("PlayAgain", 1);
         SceneManager.LoadScene(1);
     }
 
@@ -53,6 +54,18 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(3);
         AudioSource.PlayClipAtPoint(selectSound, Camera.main.transform.position, 0.5f);
         PlayerPrefs.SetInt("newPlayer", 1);
+    }
+
+    public void playAgain()
+    {
+        if (ads != null)
+        {
+            ads.AdShower();
+        }
+
+        PlayerPrefs.SetInt("hasLost", 0);
+        PlayerPrefs.SetInt("PlayAgain", 0);
+        SceneManager.LoadScene(1);
     }
 
 

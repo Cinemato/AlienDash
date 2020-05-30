@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] Transform centerBackground;
     [SerializeField] float offset = 2f;
     Jetpack player;
+    float timeTilStart = 0.7f;
    
 
     void Start()
@@ -17,14 +18,27 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
+        timeTilStart -= Time.deltaTime;
+
         if(player != null)
         {
             if (!player.isGoingDown() || player.getOnGround())
             {
                 if (player.transform.position.y > this.transform.position.y - offset)
                 {
-                    this.transform.position = new Vector3(transform.position.x, player.transform.position.y + offset, transform.position.z);
+                    Vector3 newPos = new Vector3(transform.position.x, player.transform.position.y + offset, transform.position.z);
+
+                    if (timeTilStart > 0 && PlayerPrefs.GetInt("PlayAgain", 1) == 1) // True = 0, False = 1
+                    {
+                        this.transform.position = Vector3.MoveTowards(transform.position, newPos, Time.deltaTime);
+                    }
+
+                    else
+                    {
+                        this.transform.position = newPos;
+                    }                                  
                 }
+
                 moveBackground();
             }
         }     
@@ -40,5 +54,10 @@ public class CameraMovement : MonoBehaviour
         {
             centerBackground.position = new Vector2(centerBackground.position.x, transform.position.y - 10.24f);
         }
+    }
+
+    public float getTimer()
+    {
+        return timeTilStart;
     }
 }
