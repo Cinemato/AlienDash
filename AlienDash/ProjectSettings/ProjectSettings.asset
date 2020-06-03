@@ -170,7 +170,7 @@ PlayerSettings:
     Android: com.Cinemato.AlienDash
     Standalone: com.Company.ProductName
   buildNumber: {}
-  AndroidBundleVersionCode: 49
+  AndroidBundleVersionCode: 50
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
