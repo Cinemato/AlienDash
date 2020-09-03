@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] GameObject muteButton;
 
 
-    private void Update()
+    private void Start()
     {
         if (PlayerPrefs.GetInt("hasSound") == 1) //0 = True, 1 = False
         {
@@ -31,11 +31,15 @@ public class AudioManager : MonoBehaviour
         if(PlayerPrefs.GetInt("hasSound", 0) == 0) 
         {
             PlayerPrefs.SetInt("hasSound", 1);
+            muteButton.GetComponent<Image>().sprite = mutedSoundImage;
+            AudioListener.volume = 0;
         }
 
         else
         {
             PlayerPrefs.SetInt("hasSound", 0);
+            muteButton.GetComponent<Image>().sprite = soundImage;
+            AudioListener.volume = 1;
         }
     }
 
