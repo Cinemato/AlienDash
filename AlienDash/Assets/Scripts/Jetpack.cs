@@ -113,7 +113,7 @@ public class Jetpack : MonoBehaviour
                 }
             }
 
-            Debug.Log(gameCanvas.getNumberOfEffects());
+            //Debug.Log(gameCanvas.getNumberOfEffects());
         }      
 
         if (fuel <= 0)

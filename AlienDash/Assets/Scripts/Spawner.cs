@@ -181,6 +181,7 @@ public class Spawner : MonoBehaviour
             {
                 slowLimit = 1;
                 tntSpawnChance = 0.8f;
+                boosterSpawnChance = 0.4f;
             }
         }      
     }

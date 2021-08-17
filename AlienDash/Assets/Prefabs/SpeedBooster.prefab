@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpSound: {fileID: 8300000, guid: 69c3c79a8ed631c4da723a09cb28e4f9, type: 3}
+  boosterVFX: {fileID: 9131895093832983619, guid: 512934fa67e557b4a87836777e9a1895,
+    type: 3}
 --- !u!95 &1990923751
 Animator:
   serializedVersion: 3

@@ -3782,7 +3782,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 54315456, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29
+      value: -0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.r
@@ -3923,6 +3927,99 @@ PrefabInstance:
     - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
       propertyPath: InitialModule.startColor.maxGradient.ctime7
       value: 58211
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
+      value: -0.644865
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -1.0277576
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0.695648
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
+      value: -0.644865
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 0.47196233
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].time
+      value: 0.6723561
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inSlope
+      value: -1.0277576
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].outSlope
+      value: -1.4945854
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].value
+      value: 0.48969176
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].inSlope
+      value: -1.4945854
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].tangentMode
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 54315458, guid: faca164b927229a4ab3274d934f2cf4c, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161010955905887383, guid: faca164b927229a4ab3274d934f2cf4c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 1307137566904209941, guid: faca164b927229a4ab3274d934f2cf4c,
         type: 3}
