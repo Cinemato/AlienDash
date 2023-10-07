@@ -28,7 +28,7 @@ public class Jetpack : MonoBehaviour
     Spawner spawner;
     GameCanvas gameCanvas;
     CameraMovement cm;
-    
+
 
     float originalSpeed;
     float currentYPosition;
@@ -61,60 +61,20 @@ public class Jetpack : MonoBehaviour
         firePrefab.SetActive(false);
         rigidBody = GetComponent<Rigidbody2D>();
 
-        if(PlayerPrefs.GetInt("PlayAgain", 1) == 0)
+        if (PlayerPrefs.GetInt("PlayAgain", 1) == 0)
         {
             transform.position = new Vector2(transform.position.x, -1.05f);
         }
     }
 
     void Update()
-    { 
+    {
         if (jetpackPower > 5)
         {
             hasSlowed = false;
         }
 
         fuelSlider.setFuel(fuel);
-
-        if(!PauseMenu.GameIsPaused)
-        {
-            if ((Input.touchCount > 0 || Input.GetButton("Jump")) && hasFuel && !EventSystem.current.IsPointerOverGameObject())
-            {
-                if(PlayerPrefs.GetInt("PlayAgain", 1) == 0)
-                {
-                    fuel -= 1;
-                    isFlying = true;
-                    firePrefab.SetActive(true);
-                    transform.rotation = newRotation;
-
-                }
-
-                else if(cm.getTimer() <= 0)
-                {
-                    fuel -= 1;
-                    isFlying = true;
-                    firePrefab.SetActive(true);
-                    transform.rotation = newRotation;
-
-                }
-            }
-            else
-            {
-                Fall();
-            }
-
-            if (onGround)
-            {
-                if (!isFlying)
-                {
-                    firePrefab.SetActive(false);
-                    transform.rotation = originalRotation;
-                    rigidBody.AddForce(new Vector2(0f, 0f), ForceMode2D.Force);
-                }
-            }
-
-            //Debug.Log(gameCanvas.getNumberOfEffects());
-        }      
 
         if (fuel <= 0)
         {
@@ -136,19 +96,19 @@ public class Jetpack : MonoBehaviour
     {
         yield return new WaitForSeconds(boostTime);
         hasBoost = false;
-        if(!hasSlowed)
+        if (!hasSlowed)
         {
             setOrginalSpeed();
         }
 
-        if(!hasSlowed)
+        if (!hasSlowed)
         {
             gameCanvas.minusEffect();
         }
 
         if (icon != null)
         {
-            if(!hasSlowed)
+            if (!hasSlowed)
             {
                 for (int i = 0; i < icon.Length; i++)
                 {
@@ -173,10 +133,10 @@ public class Jetpack : MonoBehaviour
         {
             for (int i = 0; i < icon.Length; i++)
             {
-                if(i != 1)
+                if (i != 1)
                 {
                     icon[i].positionIcons();
-                }              
+                }
             }
         }
     }
@@ -192,11 +152,11 @@ public class Jetpack : MonoBehaviour
         {
             for (int i = 0; i < icon.Length; i++)
             {
-                if(i != 2)
+                if (i != 2)
                 {
                     icon[i].positionIcons();
                 }
-                
+
             }
         }
     }
@@ -220,7 +180,46 @@ public class Jetpack : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        if (!PauseMenu.GameIsPaused)
+        {
+            if ((Input.touchCount > 0 || Input.GetButton("Jump")) && hasFuel && !EventSystem.current.IsPointerOverGameObject())
+            {
+                if (PlayerPrefs.GetInt("PlayAgain", 1) == 0)
+                {
+                    fuel -= 1;
+                    isFlying = true;
+                    firePrefab.SetActive(true);
+                    transform.rotation = newRotation;
+
+                }
+
+                else if (cm.getTimer() <= 0)
+                {
+                    fuel -= 1;
+                    isFlying = true;
+                    firePrefab.SetActive(true);
+                    transform.rotation = newRotation;
+
+                }
+            }
+            else
+            {
+                Fall();
+            }
+
+            if (onGround)
+            {
+                if (!isFlying)
+                {
+                    firePrefab.SetActive(false);
+                    transform.rotation = originalRotation;
+                    rigidBody.AddForce(new Vector2(0f, 0f), ForceMode2D.Force);
+                }
+            }
+
+            //Debug.Log(gameCanvas.getNumberOfEffects());
+        }
+
         if (isFlying)
         {
             if (PlayerPrefs.GetInt("PlayAgain", 1) == 0)
@@ -235,7 +234,7 @@ public class Jetpack : MonoBehaviour
                 transform.position += transform.up * Time.deltaTime * jetpackPower;
                 rigidBody.velocity = new Vector2(0f, jetpackPower * Time.deltaTime);
                 onGround = false;
-            }      
+            }
         }
         else if (!isFlying && !onGround)
         {
@@ -254,18 +253,18 @@ public class Jetpack : MonoBehaviour
             onGround = true;
         }
 
-        if(collision.gameObject.tag == "Barrier")
+        if (collision.gameObject.tag == "Barrier")
         {
             if (!hasGhost && !hasBoost)
             {
                 hitBarrier = true;
             }
 
-            if(hasGhost || hasBoost)
+            if (hasGhost || hasBoost)
             {
                 collision.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
             }
-            
+
         }
     }
 
@@ -284,7 +283,7 @@ public class Jetpack : MonoBehaviour
             hitBarrier = false;
             collision.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
 
-            if(hasBoost)
+            if (hasBoost)
             {
                 jetpackPower = 5;
                 hasBoost = false;
@@ -297,7 +296,7 @@ public class Jetpack : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Booster>())
         {
-            if(!hasSlowed)
+            if (!hasSlowed)
             {
                 if (!hasBoost)
                 {
@@ -319,7 +318,7 @@ public class Jetpack : MonoBehaviour
                     spawner.minusBoosterCount();
                 }
             }
-            
+
 
             Destroy(collision.gameObject);
         }
@@ -352,19 +351,19 @@ public class Jetpack : MonoBehaviour
             lost = true;
         }
 
-        if(collision.gameObject.GetComponent<TNT>())
+        if (collision.gameObject.GetComponent<TNT>())
         {
-            if(!hasGhost)
+            if (!hasGhost)
             {
                 collision.gameObject.GetComponent<Renderer>().enabled = false;
                 hasExploded = true;
                 Destroy(collision.gameObject, 3.5f);
-            }         
+            }
         }
 
-        if(collision.gameObject.tag == "Ghost")
+        if (collision.gameObject.tag == "Ghost")
         {
-            if(!hasGhost)
+            if (!hasGhost)
             {
                 hasGhost = true;
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, ghostTransparency);
@@ -372,11 +371,11 @@ public class Jetpack : MonoBehaviour
                 StartCoroutine(GhostTime());
                 gameCanvas.addEffect();
 
-                if(icon != null)
+                if (icon != null)
                 {
                     icon[1].positionIcons();
                 }
-                
+
             }
 
             spawner.minusCount();
@@ -384,11 +383,11 @@ public class Jetpack : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        if(collision.gameObject.GetComponent<Slow>())
+        if (collision.gameObject.GetComponent<Slow>())
         {
-            if(!hasSlowed)
+            if (!hasSlowed)
             {
-                if(!hasGhost)
+                if (!hasGhost)
                 {
                     hasSlowed = true;
                     jetpackPower = 5f;
@@ -406,16 +405,16 @@ public class Jetpack : MonoBehaviour
                     {
                         icon[2].positionIcons();
                     }
-                }          
+                }
             }
 
-            if(!hasGhost)
+            if (!hasGhost)
             {
                 Destroy(collision.gameObject);
                 spawner.minusCount();
                 spawner.minusSlowCount();
             }
-            
+
         }
     }
 
