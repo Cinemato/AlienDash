@@ -17,7 +17,8 @@ public class MainMenu : MonoBehaviour
     {
         if(ads != null)
         {
-            ads.AdShower();
+            ads.LoadLoadInterstitialAd();
+            ads.ShowInterstitialAd();
         }       
         PlayerPrefs.SetInt("hasLost", 0);
         PlayerPrefs.SetInt("PlayAgain", 1);
@@ -60,13 +61,12 @@ public class MainMenu : MonoBehaviour
     {
         if (ads != null)
         {
-            ads.AdShower();
+            ads.LoadLoadInterstitialAd();
+            ads.ShowInterstitialAd();
         }
 
         PlayerPrefs.SetInt("hasLost", 0);
         PlayerPrefs.SetInt("PlayAgain", 0);
         SceneManager.LoadScene(1);
     }
-
-
 }
