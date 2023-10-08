@@ -14,8 +14,9 @@ public class IAPManager : MonoBehaviour, IStoreListener
     private static IStoreController m_StoreController;          // The Unity Purchasing system.
     private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.
 
-
     public static string product_NoAds = "1_noads.";
+
+    [SerializeField] MainMenu menu;
 
     private void Awake()
     {
@@ -139,6 +140,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
             Debug.Log("You disabled ads forever! Enjoy :)");
 
             PlayerPrefs.SetInt("NoAds", 1);
+            menu.purchaseCheck();
         }
         else
         {

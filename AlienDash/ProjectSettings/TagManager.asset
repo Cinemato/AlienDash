@@ -14,6 +14,7 @@ TagManager:
   - Rainbow2
   - Barrier
   - Ghost
+  - AdsButton
   layers:
   - Default
   - TransparentFX

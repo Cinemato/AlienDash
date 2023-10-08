@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     AdsManager ads;
+    
     [SerializeField] AudioClip selectSound;
+    [SerializeField] GameObject adsButton;
+
 
     private void Start()
     {
         ads = FindObjectOfType<AdsManager>();
+        purchaseCheck();
     }
 
     public void startGame()
@@ -22,7 +26,7 @@ public class MainMenu : MonoBehaviour
         }       
         PlayerPrefs.SetInt("hasLost", 0);
         PlayerPrefs.SetInt("PlayAgain", 1);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);     
     }
 
     public void mainMenu()
@@ -68,5 +72,13 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("hasLost", 0);
         PlayerPrefs.SetInt("PlayAgain", 0);
         SceneManager.LoadScene(1);
+    }
+
+    public void purchaseCheck()
+    {
+        if (PlayerPrefs.GetInt("NoAds", 0) == 1)
+        {
+            adsButton.SetActive(false);
+        }
     }
 }

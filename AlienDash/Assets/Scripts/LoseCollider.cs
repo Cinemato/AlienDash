@@ -5,7 +5,7 @@ using UnityEngine;
 public class LoseCollider : MonoBehaviour
 {
     [SerializeField] AudioClip loseSound;
-    Jetpack player;  
+    Jetpack player;
 
     bool hasStartedSound;
 
@@ -18,7 +18,7 @@ public class LoseCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && PlayerPrefs.GetInt("hasLost", 0) == 0)
         {
             if(gameObject.GetComponent<TNT>() && player.getHasGhost())
             {
@@ -29,8 +29,7 @@ public class LoseCollider : MonoBehaviour
             {
                 PlayerPrefs.SetInt("hasLost", 1);
                 player.setHasFuel(false);
-                PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + player.getCoins());
-
+                PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins", 0) + player.getCoins());
 
                 if (hasStartedSound == false)
                 {

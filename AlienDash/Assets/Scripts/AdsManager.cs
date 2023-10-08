@@ -10,7 +10,7 @@ public class AdsManager : MonoBehaviour
     private int pressCount = 0;
 
 #if UNITY_ANDROID
-    private string _adUnitId = "ca-app-pub-3940256099942544/1033173712";
+    private string _adUnitId = "ca-app-pub-2241590936123058/5765390662";
 #elif UNITY_IPHONE
     private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else
@@ -38,7 +38,7 @@ public class AdsManager : MonoBehaviour
     public void LoadLoadInterstitialAd()
     {
         // Checking user ad requirements.
-        if (PlayerPrefs.GetInt("NoAds", 0) == 0) return;
+        if (PlayerPrefs.GetInt("NoAds", 0) == 1) return;
 
         if (pressCount < 3)
         {
